@@ -41,4 +41,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # Others
-web-ignore/*
+web-ignore/
