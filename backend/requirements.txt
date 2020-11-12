@@ -1,6 +1,8 @@
 flask
 pandas
 numpy
-pycountry
+spacy
+textblob
+pattern
 requests
 scikit-learn[alldeps]==0.22.1

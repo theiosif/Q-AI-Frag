@@ -20,3 +20,11 @@ services:
         - ./backend:/app # for watching files
     ports:
       - "8081:8081" # if changed, please change port in `frontend/proxy.conf.dev.json`
+  stanfordnlp:
+    image: stanfordnlp
+    build:
+      context: ./stanfordnlp
+      dockerfile: Dockerfile
+    container_name: "stanfordnlp-server"
+    ports:
+      - "9000:9000"
