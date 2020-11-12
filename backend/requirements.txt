@@ -1,0 +1,6 @@
+flask
+pandas
+numpy
+pycountry
+requests
+scikit-learn[alldeps]==0.22.1
