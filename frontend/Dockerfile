@@ -1,4 +1,5 @@
 FROM node
+LABEL author="andrei.iosif@tum.de"
 
 # set up angular cli
 RUN npm i -g --supress-warnings @angular/cli@latest typescript 
@@ -8,6 +9,11 @@ COPY package.json /app
 # COPY package-lock.json /app
 
 RUN npm install --supress-warnings
+
+# Angular material is just
+# being nasty about it.
+# (dependency hell is a real place)
+RUN ng add @angular/material
 
 # now everything on the host frontend/ will be inside app/
 # as far as the container is concerned

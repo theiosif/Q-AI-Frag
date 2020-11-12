@@ -326,25 +326,31 @@
 
     <div class="home__training">
         <h3>Q-AI</h3>
-        <md-card fxLayoutAlign="center center" fxLayout="column">
+        <mat-card fxLayoutAlign="center center" fxLayout="column">
             <h4>Does this work? Please work.</h4>
-            <md-input-container>
+            
+            <!-- <mat-form-field class="example-full-width">
+              <mat-label>MatInput</mat-label>
+              <input type="text" matInput [(ngModel)]="inParameters.input" placeholder="your text here">
+            </mat-form-field> -->
+
+            <!-- <mat-input-container> -->
                 <input
-                    mdInput
+                    matInput
                     name="Input box"
                     placeholder="Type here."
                     [(ngModel)]="inParameters.input">
-            </md-input-container>
-            <button md-raised-button (click)="frag()">
+            <!-- </mat-input-container> -->
+            <button mat-raised-button (click)="frag()">
                 Frag!
             </button>
-        </md-card>
+        </mat-card>
 
         <div *ngIf="outResult"
              fxLayoutAlign="center center"
              fxLayout="column">
             <h4>Results:</h4>
-            <p>"outResult.output"</p>
+            <p>{{outResult | json}}</p>
         </div>
     </div>
 
