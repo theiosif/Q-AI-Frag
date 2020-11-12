@@ -20,7 +20,7 @@ DEBUG = True
 # initialize flask application
 app = Flask(__name__)
 
-@app.route('/api/predict', methods=['POST'])
+@app.route('/api/frag', methods=['POST'])
 def build():
 
     # move interpreter's $PWD into the models/ folder
