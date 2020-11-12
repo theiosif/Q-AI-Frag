@@ -6,9 +6,12 @@ RUN npm i -g --supress-warnings @angular/cli@latest typescript
 
 WORKDIR /app
 COPY package.json /app
-# COPY package-lock.json /app
 
-RUN npm install --supress-warnings
+# comment this one line if you
+# dont need package-lock (naughty)
+COPY package-lock.json /app
+
+RUN [ -f package-lock.json ] && npm ci || npm install --supress-warnings
 
 # Angular material is just
 # being nasty about it.
