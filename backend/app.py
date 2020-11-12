@@ -35,7 +35,7 @@ def build():
 
     # get parameters from request
     # parameters = request.get_json()
-    parameters = {'first': 'hello', 'second':'world'}
+    parameters = {'one': 'hello', 'two':'world'}
 
     # typecast parameters to int
     # params['intParamName'] = float(params['intParamName'])

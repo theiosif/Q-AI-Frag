@@ -1,12 +1,11 @@
-FROM node:8
+FROM node
 
 # set up angular cli
 RUN npm -g add @angular/cli@10.2.0
 
 WORKDIR /app
 COPY package.json /app
-COPY yarn.lock /app
-RUN yarn install --pure-lockfile
+RUN npm install
 
 # now everything on the host frontend/ will be inside app/
 # as far as the container is concerned
