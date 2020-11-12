@@ -1,7 +1,7 @@
 FROM node
 
 # set up angular cli
-RUN npm i -g --supress-warnings @angular/cli typescript 
+RUN npm i -g --supress-warnings @angular/cli@latest typescript 
 
 WORKDIR /app
 COPY package.json /app

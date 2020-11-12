@@ -501,6 +501,42 @@
     </a>
   </div>
 
+  <!-- //////////////////////////////////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////// -->
+
+  <div fxLayoutAlign="center center" fxLayout="column">
+    <h1>I FKIN HATE ANGULAR</h1>
+
+    <div class="home__training">
+        <h3>Q-AI</h3>
+        <md-card fxLayoutAlign="center center" fxLayout="column">
+            <h4>Does this work? Please work.</h4>
+            <md-input-container>
+                <input
+                    mdInput
+                    name="Input box"
+                    placeholder="Type here."
+                    [(ngModel)]="inParameters.C">
+            </md-input-container>
+            <button md-raised-button (click)="frag()">
+                Train model
+            </button>
+        </md-card>
+
+        <div *ngIf="outResult"
+             fxLayoutAlign="center center"
+             fxLayout="column">
+            <h4>Training Accuracy</h4>
+            <p>"outResult.output"</p>
+        </div>
+    </div>
+
+
+<!-- //////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////// -->
+
   <!-- Footer -->
   <footer>
       Love Angular?&nbsp;
