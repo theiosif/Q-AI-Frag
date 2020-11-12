@@ -1,11 +1,13 @@
 FROM node
 
 # set up angular cli
-RUN npm -g add @angular/cli@10.2.0
+RUN npm i -g --supress-warnings @angular/cli typescript 
 
 WORKDIR /app
 COPY package.json /app
-RUN npm install
+# COPY package-lock.json /app
+
+RUN npm install --supress-warnings
 
 # now everything on the host frontend/ will be inside app/
 # as far as the container is concerned
