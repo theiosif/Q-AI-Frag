@@ -6,7 +6,7 @@ import {map} from "rxjs/operators";
 
 import {
   InParameters,
-  BuildResult
+  OutResult
 } from "./types";
 
 const SERVER_URL: string = 'api/';
@@ -21,6 +21,6 @@ export class ApiService {
 
   public frag(inParameters: InParameters){
     console.log('>>>>>>>> calling service')
-    return this.http.post('${SERVER_URL}frag', inParameters).pipe(map((result:BuildResult) =>result));
+    return this.http.post(`${SERVER_URL}frag`, inParameters).pipe(map((result:OutResult) =>result));
   }
 }

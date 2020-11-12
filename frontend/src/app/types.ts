@@ -3,6 +3,6 @@ export class InParameters {
 }
 
 
-export class outResult {
+export class OutResult {
     output: string = 'Placeholder questions.'
 }
