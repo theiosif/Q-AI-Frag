@@ -13,6 +13,6 @@ ENV PYTHONPATH="$PYTHONPATH:/"
 # Unit tests
 # RUN pip install pytest && pytest
 
-EXPOSE 5000
+EXPOSE 8081
 
 ENTRYPOINT python app.py

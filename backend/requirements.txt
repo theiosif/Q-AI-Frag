@@ -1,8 +1,11 @@
 flask
+requests
 pandas
 numpy
 spacy
+gensim
+stanfordnlp
+wikipedia
 textblob
 pattern
-requests
 scikit-learn[alldeps]==0.22.1
