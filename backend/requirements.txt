@@ -3,7 +3,9 @@ requests
 pandas
 numpy
 spacy
+nltk
 gensim
+word2vec
 stanfordnlp
 wikipedia
 textblob
