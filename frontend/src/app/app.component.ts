@@ -33,6 +33,6 @@ export class AppComponent implements OnInit {
   }
 
   public wip(){
-    alert("Coming soon lol.")
+    alert("Coming soon.")
   }
 }
