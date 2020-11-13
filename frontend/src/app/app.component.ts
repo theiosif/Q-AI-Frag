@@ -31,4 +31,8 @@ export class AppComponent implements OnInit {
         this.outResult = outResult;
     });
   }
+
+  public wip(){
+    alert("Coming soon lol.")
+  }
 }
