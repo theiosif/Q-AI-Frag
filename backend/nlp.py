@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-
-from   utils  import dbg_print, dbg_print_mult
-from   spacy  import displacy
+from   __future__ import print_function, unicode_literals
+from   utils      import dbg_print, dbg_print_mult
+from   spacy      import displacy
 import de_core_news_lg
 import wikipedia
 import requests
@@ -94,6 +94,60 @@ class QuestionBuilder:
             print(label, word)
             return label
 qb = QuestionBuilder()
+
+#--------------------------------------------------------------------------------
+class DebugHelper:
+    """
+    Courtesy of https://explosion.ai/blog/german-model
+
+    """
+    # show universal pos tags
+    def posTags(self, doc):
+        doc = nlp(doc)
+        print(' '.join('{word}/{tag}'.format(word=t.orth_, tag=t.pos_) for t in doc))
+        # output: Ich/PRON bin/AUX ein/DET Berliner/NOUN ./PUNCT
+
+    # show German specific pos tags (STTS)
+    def gerPostTags(self, doc):
+        doc = nlp(doc)
+        print(' '.join('{word}/{tag}'.format(word.orth_, tag.tag_) for t in doc))
+        # output: Ich/PPER bin/VAFIN ein/ART Berliner/NN ./$.
+
+    # show dependency arcs
+    def depArcs(self, doc):
+        doc = nlp(doc)
+        print('\n'.join('{child:<8} <{label:-^7} {head}'.format(child=t.orth_, label=t.dep_, head=t.head.orth_) for t in doc))
+        # output: (sb: subject, nk: noun kernel, pd: predicate)
+        # Ich      <--sb--- bin
+        # bin      <-ROOT-- bin
+        # ein      <--nk--- Berliner
+        # Berliner <--pd--- bin
+        # .        <-punct- bin
+    
+    # show named entities
+    def namedEnts(self, doc):
+        doc = nlp(doc)
+        for ent in doc.ents:
+            print(ent.text)
+            # output:
+            # Berliner
+
+    # show noun chunks
+    def nounChunks(self, doc):
+        doc = nlp(doc)
+        for chunk in doc.noun_chunks:
+            print(chunk.text)
+        # output:
+        # ein Berliner
+
+        # noun chunks include so-called measure constructions ...
+        # 'Ich möchte gern zum Essen eine Tasse Kaffee bestellen.'
+        # [Essen, eine Tasse Kaffee]
+
+        # ... and close appositions
+        # 'Der Senator vermeidet das Thema Flughafen.')
+        # [Der Senator, das Thema Flughafen]
+debugHelper = DebugHelper()
 
 #--------------------------------------------------------------------------------
 def checkWiki():
