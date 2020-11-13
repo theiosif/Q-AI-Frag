@@ -40,6 +40,8 @@ class Sentence:
 
     def sentenceWithoutSubSentence(self, sentence):
         return "sentence - SubSentence"
+sentence = Sentence()        
+
 #--------------------------------------------------------------------------------
 class Question:
     def createTopicQuestion(self, topic):
@@ -65,15 +67,17 @@ class Question:
 
     def createLocationQuestion(self, word):
         return "Wo liegt " + word + "?"
+question = Question()
 
 #--------------------------------------------------------------------------------
-class Word2vec:
+class Word2vecClass:
     #TODO: if theres too much time wasted here, make the model import global
     model = KeyedVectors.load_word2vec_format(gModelFullpath,
                                                        unicode_errors='ignore',
                                                        binary='true')
     def SeachSimilarWord(self, word):
         return self.model.most_similar(word)
+word2vecInst = Word2Vec()
 
 #--------------------------------------------------------------------------------
 class QuestionBuilder:
@@ -89,6 +93,7 @@ class QuestionBuilder:
         else:
             print(label, word)
             return label
+qb = QuestionBuilder()
 
 #--------------------------------------------------------------------------------
 def checkWiki():
