@@ -34,8 +34,7 @@ def build():
         dbg_print(f'model_dir: {model_dir}')
 
     # get parameters from request
-    # parameters = request.get_json()
-    parameters = {'one': 'hello', 'two':'world'}
+    parameters = request.get_json()
 
     # typecast parameters to int
     # params['intParamName'] = float(params['intParamName'])

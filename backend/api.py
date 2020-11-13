@@ -12,6 +12,6 @@ import os
 # dummy API service function
 def frag(parameters):
     return {'called': 'yes',
-            'result': f'{parameters["one"]} {parameters["two"]}!'}
+            'result': f'your input: {parameters["input"]}, it works!'}
 
 

@@ -7,8 +7,9 @@ WORKDIR /app
 RUN pip install --upgrade pip
 RUN pip install setuptools
 RUN pip install -r requirements.txt
-RUN python -m spacy download de_core_news_lg
 ENV PYTHONPATH="$PYTHONPATH:/"
+
+RUN python3 -m spacy download de_core_news_lg
 
 # Unit tests
 # RUN pip install pytest && pytest
