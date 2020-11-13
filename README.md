@@ -4,11 +4,14 @@
 
 ---
 
+This repository consists of two docker containers: a flask backend and an angular frontend, which communicate through a REST API that makes calls to python NLP code.
+
 ### **Install notes:**
-* Prerequisites: `docker, docker-compose` must be installed.
-* To (eventually) run, just execute `docker-compose up` from the repo root and the project should auto-launch. Then just head to `localhost:4200` and be amazed.
+* **Prerequisites:** `docker, docker-compose` must be installed.
+* **Running:**: `docker-compose up` 
+* **To view:**: http://localhost:4200
 ---
 
-dev-related quicklinks:
-* [[GDoc Collaborative Scratchpad]](https://docs.google.com/document/d/1E89vJlT4-ZxAiiPXJgoPKMvcrPnag2tvRQP_3udJS4w/edit)
-* [[TeX Idea Pitch Report]](https://sharelatex.tum.de/8411731379bhsnnjfgwmnq)
+### **Screenshot**
+
+![screenshot](https://i.imgur.com/5reOGFv.png)
