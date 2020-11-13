@@ -9,6 +9,7 @@ import word2vec
 import gensim
 import spacy
 import nltk
+import sys
 import re
 import os
 
@@ -18,15 +19,16 @@ from gensim.models import Word2Vec, KeyedVectors
 nlp = spacy.load("de_core_news_lg")
 doc = ""
 
-# https://cloud.devmount.de/d2bc5672c523b086/german.model
+# Download language model(s) on the first run.
 gScriptDir     = os.path.dirname(os.path.realpath(__file__))
 gModelFullpath = os.path.join(gScriptDir, 'models' ,"german.model")
-with open(gModelFullpath, 'wb') as f:
-    url = 'https://cloud.devmount.de/d2bc5672c523b086/german.model'
-    dbg_print("Downloading 'german.model'...")
-    r = requests.get(url, allow_redirects=True)
-    f.write(r.content)
-    dbg_print("Done! 'german.model' saved under models/.")
+if not os.path.exists(gModelFullpath):
+    with open(gModelFullpath, 'wb') as f:
+        url = 'https://cloud.devmount.de/d2bc5672c523b086/german.model'
+        dbg_print("Downloading 'german.model'...")
+        r = requests.get(url, allow_redirects=True)
+        f.write(r.content)
+        dbg_print("Done! 'german.model' saved under models/.")
 
 ### This may seem like butchery but it will save a lot of headaches :)
 ### One class per previous file.
