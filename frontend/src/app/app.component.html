@@ -296,6 +296,16 @@
       visibility: hidden;
     }
   }
+
+.textarea-class {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+
+width: 100%;
+
+
+}
 </style>
 
 <!-- Toolbar -->
@@ -328,24 +338,21 @@
     <div class="home__training">
         <h3>Q-AI</h3>
         <mat-card fxLayoutAlign="center center" fxLayout="column">
-            <h4>Does this work? Please work.</h4>
+            <!-- <h4>Does this work? Please work.</h4> -->
             
-            <!-- <mat-form-field class="example-full-width">
-              <mat-label>MatInput</mat-label>
-              <input type="text" matInput [(ngModel)]="inParameters.input" placeholder="your text here">
-            </mat-form-field> -->
-
-            <mat-form-field class="example-full-width">
-                <!-- <mat-label>MatInputLabel</mat-label> -->
-                <input
-                    type="text"
+            <mat-form-field layout="row" class="example-full-width" appearance="outline">
+                <mat-label>MatInputLabel</mat-label>
+                <textarea
+                    class="textarea-class"
                     matInput
+                    rows="10"
+                    cols="80"
                     name="Input box"
-                    placeholder="Type here."
-                    [(ngModel)]="inParameters.input">
+                    placeholder="(check types.ts)"
+                    [(ngModel)]="inParameters.input"></textarea>
             </mat-form-field>
             <br/>
-            <mat-form-field layout="row" layout-align="start center" flex>
+            <mat-form-field>
               <button mat-raised-button (click)="frag()">
                   Frag!
               </button>
@@ -355,8 +362,13 @@
         <div *ngIf="outResult"
              fxLayoutAlign="center center"
              fxLayout="column">
-            <h4>Results:</h4>
-            <p>{{outResult | json}}</p>
+            
+            <h3>Results:</h3>
+            <ul>
+            <div *ngFor="let item of outResult | keyvalue">
+              <li> <b>{{item.key}}</b> and Value: <b>{{item.value}}</b> </li>
+            </div>
+            </ul>
             <mat-form-field layout="row" layout-align="start center" flex>
               <button mat-raised-button (click)="wip()">
                   Export to Anki deck
@@ -365,18 +377,7 @@
         </div>
     </div>
 
-
-<!-- //////////////////////////////////////////////////////// -->
-<!-- //////////////////////////////////////////////////////// -->
-<!-- //////////////////////////////////////////////////////// -->
-</div>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  </div>
+</div>  
 
 
